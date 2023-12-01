@@ -25,10 +25,11 @@ function liveDown() {
     state.values.remainingLives--;
     state.view.lives.textContent = "x" + state.values.remainingLives;
     if(state.values.remainingLives < 0){
-        alert("Game Over");
+        alert("Game Over! O seu resultado foi: " + state.values.result);
         state.values.remainingLives = 3;
         state.view.lives.textContent = "x" + state.values.remainingLives;
-        state.view.score.textContent = 0; 
+        state.values.result = 0;
+        state.view.score.textContent = state.values.result;     
     }
 }
 
@@ -46,6 +47,7 @@ function countDown() {
         clearInterval(state.actions.counDownTImerId);
         clearInterval(state.actions.timerId);
         alert("Game OVer! O seu resultado foi: " + state.values.result);
+        state.values.result = 0
     }
 }
 
